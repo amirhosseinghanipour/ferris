@@ -10,7 +10,3 @@ kernel = { path = "../kernel" }
 
 [build-dependencies]
 bootimage = "0.10.3"
-
-[package.metadata.bootimage]
-default-target = "x86_64-ferris.json"
-
