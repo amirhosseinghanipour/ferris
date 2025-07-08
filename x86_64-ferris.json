@@ -4,6 +4,7 @@
   "arch": "x86_64",
   "os": "none",
   "vendor": "ferris",
+  "target-pointer-width": "64",
   "linker-flavor": "ld.lld",
   "disable-redzone": true,
   "features": "-mmx,-sse,+soft-float",
