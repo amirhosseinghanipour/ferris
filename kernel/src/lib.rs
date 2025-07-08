@@ -4,8 +4,6 @@
 
 use core::panic::PanicInfo;
 use lazy_static::lazy_static;
-use spin::Mutex;
-use volatile::Volatile;
 use x86_64::structures::idt::{InterruptDescriptorTable, InterruptStackFrame};
 
 mod vga;
@@ -22,7 +20,10 @@ fn panic(info: &PanicInfo) -> ! {
     loop {}
 }
 
-// ---------- IDT ----------
+extern "x86-interrupt" fn breakpoint_handler(_stack_frame: InterruptStackFrame) {
+    loop {}
+}
+
 lazy_static! {
     static ref IDT: InterruptDescriptorTable = {
         let mut idt = InterruptDescriptorTable::new();
@@ -34,8 +35,3 @@ lazy_static! {
 pub fn init_idt() {
     IDT.load();
 }
-
-extern "x86-interrupt" fn breakpoint_handler(stack_frame: InterruptStackFrame) {
-    println!("EXCEPTION: BREAKPOINT\n{:#?}", stack_frame);
-}
-
