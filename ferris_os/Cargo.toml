@@ -5,8 +5,8 @@ edition = "2021"
 build = "build.rs"
 
 [dependencies]
-bootloader = "0.11.5"
 kernel = { path = "../kernel" }
 
 [build-dependencies]
 bootimage = "0.10.3"
+bootloader = "0.11.5"
