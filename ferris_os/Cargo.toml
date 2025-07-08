@@ -1,0 +1,16 @@
+[package]
+name = "ferris_os"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[dependencies]
+bootloader = "0.11.5"
+kernel = { path = "../kernel" }
+
+[build-dependencies]
+bootimage = "0.10.3"
+
+[package.metadata.bootimage]
+default-target = "x86_64-ferris.json"
+

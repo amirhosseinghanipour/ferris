@@ -1,0 +1,5 @@
+[workspace]
+members = [
+  "kernel", 
+  "ferris_os"
+]
