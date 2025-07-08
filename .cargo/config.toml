@@ -1,3 +1,6 @@
 [build]
 target = "x86_64-ferris.json"
+rustflags = ["-C", "link-arg=-Tlink.ld"]
 
+[target.x86_64-ferris]
+runner = "qemu-system-x86_64 -drive format=raw,file=target/x86_64-ferris/debug/bootimage-ferris_os.bin"
